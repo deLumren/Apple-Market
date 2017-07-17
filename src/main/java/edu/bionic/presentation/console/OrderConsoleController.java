@@ -11,18 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class OrderConsoleController {
+public class  OrderConsoleController {
 
     private OrderService orderService;
     private ProductService productService;
+    private ReviewConsoleController reviewConsoleController;
 
     private List<Product> basket = new ArrayList<>();
 
     @Autowired
-    public OrderConsoleController(OrderService orderService, ProductService productService) {
+    public OrderConsoleController(ReviewConsoleController reviewConsoleController, OrderService orderService, ProductService productService) {
         this.orderService = orderService;
         this.productService = productService;
+        this.reviewConsoleController=reviewConsoleController;
     }
+//    public void createNewReview(int productId) {
+//        Product selectedProduct = productService.getById(productId);
+//        selectedProduct.
+//    }
+
 
     public void addProductToBasket(int productId) {
         Product selectedProduct = productService.getById(productId);

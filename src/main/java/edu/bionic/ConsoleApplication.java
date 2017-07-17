@@ -32,6 +32,7 @@ public class ConsoleApplication {
         System.out.println("Выберите действие:");
         System.out.println("1. Купить товары");
         System.out.println("2. Просмотреть заказы");
+        System.out.printf("3. Оставить отзыв на товар");
         System.out.println("0. Выйти из приложения");
         switch (consoleReader.readLine()) {
             case "1":
@@ -42,6 +43,13 @@ public class ConsoleApplication {
                 System.out.println("---------------------------------------");
                 printOrders();
                 break;
+            case "3":
+                System.out.println("---------------------------------------");
+                System.out.println("Написать отзыв");
+              //reviewController.printAllProducts();
+                showProducts();
+                break;
+//                System.out.println("0. Завпершить заказ");
             case "0":
                 System.exit(0);
             default:
@@ -66,6 +74,16 @@ public class ConsoleApplication {
         }
         System.out.println("--------------------------------------");
         byuProducts();
+    }
+
+    private static void showProducts()throws IOException{
+        //showlist
+        System.out.println("Введите номер продукта для которого Вы хотите оставить отзыв");
+        productController.printAllProducts();
+        System.out.println("0. Вернуться к предыдущему меню");
+        System.out.println("---------------------------------------------");
+
+
     }
 
     private static void printOrders() throws IOException {
