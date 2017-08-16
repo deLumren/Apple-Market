@@ -20,8 +20,33 @@ public class ProductDaoMock implements ProductDao {
     }
 
     @Override
+    public List<Product> getAllSortedByName(String name, BigDecimal min, BigDecimal max, boolean desc, int offset, int limit) {
+        return null;
+    }
+
+    @Override
+    public List<Product> getAllSortedByPrice(String name, BigDecimal min, BigDecimal max, boolean desc, int offset, int limit) {
+        return null;
+    }
+
+    @Override
+    public int getCount(String name, BigDecimal min, BigDecimal max) {
+        return productStorage.size();
+    }
+
+    @Override
     public Optional<Product> getById(int productId) {
         return productStorage.stream().filter(product -> product.getId() == productId).findAny();
+    }
+
+    @Override
+    public Product save(Product product) {
+        return null;
+    }
+
+    @Override
+    public boolean delete(int productId) {
+        return false;
     }
 
     public void initProductStorage() {
@@ -33,7 +58,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(700),
                 Color.BLACK,
                 64,
-                "4,7 inch"
+                "4,7 inch",
+                null
         ));
         productStorage.add(new Product(
                 2,
@@ -41,7 +67,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(700),
                 Color.WHITE,
                 128,
-                "4,7 inch"
+                "4,7 inch",
+                null
         ));
         productStorage.add(new Product(
                 3,
@@ -49,7 +76,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(700),
                 Color.GRAY,
                 256,
-                "4,7 inch"
+                "4,7 inch",
+                null
         ));
         productStorage.add(new Product(
                 4,
@@ -57,7 +85,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(800),
                 Color.BLACK,
                 256,
-                "5,5 inch"
+                "5,5 inch",
+                null
         ));
         productStorage.add(new Product(
                 5,
@@ -65,7 +94,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(800),
                 Color.GRAY,
                 64,
-                "5,5 inch"
+                "5,5 inch",
+                null
         ));
         productStorage.add(new Product(
                 6,
@@ -73,7 +103,8 @@ public class ProductDaoMock implements ProductDao {
                 BigDecimal.valueOf(800),
                 Color.WHITE,
                 128,
-                "5,5 inch"
+                "5,5 inch",
+                null
         ));
     }
 }

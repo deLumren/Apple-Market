@@ -74,6 +74,18 @@ public class Order {
         this.products = new ArrayList<>(products);
     }
 
+    public Order(Integer id, LocalDateTime dateTime, BigDecimal totalAmount, List<Product> products, String name, String email, String phone, String address) {
+        this.id = id;
+        this.dateTime = dateTime;
+        this.totalAmount = totalAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
+        this.products = products;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -95,7 +107,7 @@ public class Order {
     }
 
     public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
+        this.totalAmount = totalAmount.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     public List<Product> getProducts() {
